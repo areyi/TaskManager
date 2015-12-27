@@ -3,6 +3,9 @@
 namespace Areyi\TaskManager\Laravel;
 
 use Illuminate\Support\ServiceProvider;
+use Areyi\TaskManager\config\taskmanager;
+use Config;
+
 class TaskManagerServiceProvider extends ServiceProvider
 {
     /**
@@ -12,7 +15,7 @@ class TaskManagerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        
     }
 
     /**
