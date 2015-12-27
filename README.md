@@ -238,15 +238,16 @@ TaskManager::completeTask($task_id)
 
 ### List of available routes
 These are the available routes in the package:
-| Route | Uses |
-| ----- | ---- |
-| GET /taskmanager/list/all | List all projects and tasks |
-| GET /taskmanager/list/projects | List all projects |
-| GET /taskmanager/list/project/{project_id} | Get a project with the given project id |
-| GET /taskmanager/list/tasks/{project_id} | Get tasks associated with the project id |
-| GET /taskmanager/delete/project/{project_id} | Delete the project |
-| GET /taskmanager/delete/task/{task_id} | Delete the task |
-| GET /taskmanager/complete/task/{task_id} | Mark the task as completed |
+| Route                                        | Uses                                     |
+|----------------------------------------------|------------------------------------------|
+| GET /taskmanager/list/all                    | List all projects and tasks              |
+| GET /taskmanager/list/projects               | List all projects                        |
+| GET /taskmanager/list/project/{project_id}   | Get a project with the given project id  |
+| GET /taskmanager/list/tasks/{project_id}     | Get tasks associated with the project id |
+| GET /taskmanager/delete/project/{project_id} | Delete the project                       |
+| GET /taskmanager/delete/task/{task_id}       | Delete the task                          |
+| GET /taskmanager/complete/task/{task_id}     | Mark the task as completed               |
+
 ----
 
 ### List of avaiable methods
