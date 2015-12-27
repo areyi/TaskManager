@@ -17,7 +17,8 @@ class Base
     /**
      * @return null
      */ 
-    private function initialize(){
+    private function initialize()
+    {
         config([
             'project_columns' => ['projects.id', 'projects.name', 'projects.slug', 'users.id as owner_id', 'users.username as owner', 'projects.created_at', 'projects.updated_at']
         ]);
@@ -41,7 +42,8 @@ class Base
      * Get all projects and tasks
      * @return Areyi\TaskManager $this
      */
-    public function getAll(){
+    public function getAll()
+    {
         $projects  = (array) DB::table('projects')
             ->join('users', 'users.id', '=', 'projects.owner')
             ->get(config('project_columns'));
@@ -90,7 +92,8 @@ class Base
      * Get whole projects
      * @return Areyi\TaskManager $this
      */
-    public function getProjects(){
+    public function getProjects()
+    {
         $projects = DB::table('projects')
             ->join('users', 'users.id', '=', 'projects.owner')
             ->get(config('project_columns'));
@@ -236,7 +239,8 @@ class Base
      * Formats the project / task (Areyi\TaskManager)
      * @returns Areyi\TaskManager\Formatter\Formatter $formated
      */
-    public function format(){
+    public function format()
+    {
         return $formated = new Formatter($this);
     }
     
@@ -244,7 +248,8 @@ class Base
      * Delete a project
      * $return int $rows_deleted
      */
-    public function deleteProject($projectId){
+    public function deleteProject($projectId)
+    {
         $rows_deleted = DB::table('projects')->where('id', '=', $projectId)->delete();
         return $rows_deleted;
     }
@@ -253,7 +258,8 @@ class Base
      * Delete a task
      * $return int $rows_deleted
      */
-    public function deleteTask($taskId){
+    public function deleteTask($taskId)
+    {
         $rows_deleted = DB::table('tasks')->where('id', '=', $taskId)->delete();
         return $rows_deleted;
     }
@@ -262,7 +268,8 @@ class Base
      * Mark a task as completed
      * $return int $rows_affected
      */
-    public function completeTask($taskId){
+    public function completeTask($taskId)
+    {
         $rows_affected = DB::table('tasks')
             ->where('id', $taskId)
             ->update(['completed' => 1]);
@@ -273,13 +280,15 @@ class Base
      * !!TODO!!
      * Helper method to get the last insert id
      */
-    private function getLastInsertId(){
+    private function getLastInsertId()
+    {
         $lid = json_decode(json_encode(DB::select('SELECT LAST_INSERT_ID()')), true);
         $lastInsertId = $lid[0]['LAST_INSERT_ID()'];
         return $lastInsertId;
     }
     
-    public function __toString(){
+    public function __toString()
+    {
         return json_encode($this);
     }
 }

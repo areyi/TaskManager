@@ -236,6 +236,11 @@ TaskManager::completeTask($task_id)
 
 ----
 
+### Formatting
+Still under development
+
+----
+
 ### List of available routes
 These are the available routes in the package:
 
@@ -264,9 +269,9 @@ These are the methods in the package:
 | TaskManager::getTasks();                   | Get all tasks                                |
 | TaskManager::getTask($project_id);         | Get a task by given project_id               |
 | TaskManager::getAll();                     | Get all projects and their tasks             |
-| TaskManager::projectDelete();              | (todo)                                       |
-| TaskManager::taskDone();                   | (todo)                                       |
-| TaskManager::taskDelete();                 | (todo)                                       |
+| TaskManager::deleteProject($projectId);    | Delete a project                             |
+| TaskManager::deleteTask($taskId);          | Delete a task                                |
+| TaskManager::completeTask($taskId);        | Mark a task as done                          |
 | TaskManager::format();                     | (todo)                                       |
 
 ----
