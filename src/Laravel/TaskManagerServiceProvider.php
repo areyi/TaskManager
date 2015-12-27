@@ -10,6 +10,7 @@ class TaskManagerServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
+     * - Get all the routes
      *
      * @return void
      */

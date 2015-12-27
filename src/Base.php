@@ -14,7 +14,10 @@ class Base
         $this->initialize();
     }
     
-    public function initialize(){
+    /**
+     * @return null
+     */ 
+    private function initialize(){
         config([
             'project_columns' => ['projects.id', 'projects.name', 'projects.slug', 'users.id as owner_id', 'users.username as owner', 'projects.created_at', 'projects.updated_at']
         ]);
@@ -27,6 +30,7 @@ class Base
     /**
      * Set the user id for creating projects and tasks
      * @param int $userId
+     * @return null
      */
     public function setUserId($userId)
     {
@@ -35,7 +39,7 @@ class Base
     
     /**
      * Get all projects and tasks
-     * @return Areyi\TaskManager
+     * @return Areyi\TaskManager $this
      */
     public function getAll(){
         $projects  = (array) DB::table('projects')
@@ -63,7 +67,7 @@ class Base
      * Get a project with given projectId
      * 
      * @param mixed $projectId
-     * @return Areyi\TaskManager
+     * @return Areyi\TaskManager $this
      */    
     public function getProject($projectId)
     {
@@ -72,18 +76,19 @@ class Base
             ->join('users', 'users.id', '=', 'projects.owner')
             ->first(config('project_columns'));
         
+        if(count($project) == 0){
+            return ['error' => 'project not found'];
+        }
+        
         foreach($project as $key => $value) {
             $this->$key = $value;
         }
-        
-
-
         return $this;
     }
     
     /**
      * Get whole projects
-     * @return Areyi\TaskManager
+     * @return Areyi\TaskManager $this
      */
     public function getProjects(){
         $projects = DB::table('projects')
@@ -102,7 +107,7 @@ class Base
      * 
      * TaskManager::addProject($project_details)->addTask($task_details)
      * 
-     * @return Areyi\TaskManager
+     * @return Areyi\TaskManager $this
      */
     public function getTasks()
     {
@@ -132,7 +137,7 @@ class Base
      * Get a specific task by task id
      * 
      * @param mixed $taskId
-     * @return Areyi\TaskManager
+     * @return Areyi\TaskManager $this
      */
     public function getTask($taskId)
     {
@@ -146,8 +151,8 @@ class Base
     /**
      * Create a project
      * 
-     * @param array $details
-     * @return Areyi\TaskManager
+     * @param mixed|array $details
+     * @return Areyi\TaskManager $this
      */
     public function addProject(array $details)
     {
@@ -176,8 +181,8 @@ class Base
     /**
      * Create a task
      * 
-     * @param array $details
-     * @return Areyi\TaskManager
+     * @param mixed|array $details
+     * @return Areyi\TaskManager $this
      */    
     public function addTask(array $details)
     {
@@ -227,8 +232,41 @@ class Base
         return $this;
     }
     
+    /**
+     * Formats the project / task (Areyi\TaskManager)
+     * @returns Areyi\TaskManager\Formatter\Formatter $formated
+     */
     public function format(){
-        return $formatter = new Formatter($this);
+        return $formated = new Formatter($this);
+    }
+    
+    /**
+     * Delete a project
+     * $return int $rows_deleted
+     */
+    public function deleteProject($projectId){
+        $rows_deleted = DB::table('projects')->where('id', '=', $projectId)->delete();
+        return $rows_deleted;
+    }
+
+    /**
+     * Delete a task
+     * $return int $rows_deleted
+     */
+    public function deleteTask($taskId){
+        $rows_deleted = DB::table('tasks')->where('id', '=', $taskId)->delete();
+        return $rows_deleted;
+    }
+    
+    /**
+     * Mark a task as completed
+     * $return int $rows_affected
+     */
+    public function completeTask($taskId){
+        $rows_affected = DB::table('tasks')
+            ->where('id', $taskId)
+            ->update(['completed' => 1]);
+        return $rows_affected;
     }
     
     /**
