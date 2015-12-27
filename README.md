@@ -6,6 +6,8 @@ A simple task manager for Laravel
 
 TaskManager is a Laravel package which allows you to create projects, and create tasks. The package is in **development stage** for time being, and not ready for production uses.
 
+----
+
 ### Version
 0.3.1
 
@@ -15,6 +17,8 @@ Dillinger uses a number of open source projects to work properly:
 
 * Laravel - version 5 (version 4 <= untested, need help here). 
 * PHP - version => 5.3
+
+----
 
 ### Installation
 
@@ -43,6 +47,8 @@ And finally, run all the migration files
 ```sh
 php artisan migrate --path=vendor/areyi/taskmanager/src/database/migrations
 ```
+
+----
 
 ## Usage
 
@@ -201,20 +207,24 @@ Areyi\TaskManager\Base Object
 )
 ```
 
-### 5. Get the whole thing
+#### 5. Get the whole thing
 You can also get all projects along with their tasks:
 ```php
 TaskManager::getAll();
 ```
 
-### 6. Delete a project (todo)
-Currently developing
-### 7. Delete a task (todo)
-Currently developing
-### 8. Mark a task as done (todo)
+#### 6. Delete a project (todo)
 Currently developing
 
-## List of avaiable methods
+#### 7. Delete a task (todo)
+Currently developing
+
+#### 8. Mark a task as done (todo)
+Currently developing
+
+----
+
+### List of avaiable methods
 
 | Method                                     | Uses                                         |
 |--------------------------------------------|----------------------------------------------|
@@ -231,18 +241,22 @@ Currently developing
 | TaskManager::taskDelete();                 | (todo)                                       |
 | TaskManager::format();                     | (todo)                                       |
 
-## Todos
+----
+
+### Todos
 
  - Task done method (50%)
  - Delete task method (50%)
  - Formatter (50%)
+
+----
 
 License
 ----
 
 BSD 3-Clause
 
-## Contributions
+### Contributions
 
 Feel free to contribute to the project! It will be much appriciated! And most importantly, its a **Free Software, Hell Yeah!**
 
