@@ -160,7 +160,7 @@ class Base
         $this->result = DB::table('projects')->insert(
             [
                 'name' => $details['name'], 
-                'slug' => $details['slug'], 
+                'slug' => $details['slug'], //optional
                 'owner' => $this->userID, 
                 'created_at' => Carbon\Carbon::now(),
                 'updated_at' => Carbon\Carbon::now()
