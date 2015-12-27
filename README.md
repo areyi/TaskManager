@@ -252,7 +252,6 @@ Currently developing
 ----
 
 License
-----
 
 BSD 3-Clause
 
