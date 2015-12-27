@@ -238,6 +238,7 @@ TaskManager::completeTask($task_id)
 
 ### List of available routes
 These are the available routes in the package:
+
 | Route                                        | Uses                                     |
 |----------------------------------------------|------------------------------------------|
 | GET /taskmanager/list/all                    | List all projects and tasks              |
@@ -252,6 +253,7 @@ These are the available routes in the package:
 
 ### List of avaiable methods
 These are the methods in the package:
+
 | Method                                     | Uses                                         |
 |--------------------------------------------|----------------------------------------------|
 | TaskManager::setUserId($userId);           | Set the ownership for all projects and tasks |
