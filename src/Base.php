@@ -240,4 +240,8 @@ class Base
         $lastInsertId = $lid[0]['LAST_INSERT_ID()'];
         return $lastInsertId;
     }
+    
+    public function __toString(){
+        return json_encode($this);
+    }
 }
