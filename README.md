@@ -22,7 +22,7 @@ Download the package as a zip, and then put it on /vendor folder.
 
 Add the following line on your **composer.json** file, under the psr-4:
 
-```json
+```
 "psr-4": {
     ...
     "Areyi\\TaskManager\\": "vendor/areyi/taskmanager/src"
@@ -65,7 +65,7 @@ TaskManager::addProject($project_details);
 ```
 
 which will return:
-```json
+```
 Areyi\TaskManager\Base Object
 (
     [userID] => 1
@@ -91,7 +91,7 @@ TaskManager::addTask($task_details)->addTask($task2_details)->addTask($task3_det
 
 which will return:
 
-```json
+```
 Areyi\TaskManager\Base Object
 (
     [userID] => 1
@@ -117,7 +117,7 @@ To get all existing projects:
 TaskManager::getProjects();
 ```
 which will returns straightaway:
-```json
+```
 Areyi\TaskManager\Base Object
 (
     [userID] => 1
@@ -157,7 +157,7 @@ TaskManager::getProject($project_id)->getTasks();
 ```
 which returns:
 
-```json
+```
 Areyi\TaskManager\Base Object
 (
     [userID] => 1
