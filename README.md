@@ -278,8 +278,6 @@ These are the methods in the package:
 
 ### Todos
 
- - Task done method (50%)
- - Delete task method (50%)
  - Formatter (50%)
 
 ----
