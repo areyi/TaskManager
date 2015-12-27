@@ -13,8 +13,6 @@ TaskManager is a Laravel package which allows you to create projects, and create
 
 ### Requirements
 
-Dillinger uses a number of open source projects to work properly:
-
 * Laravel - version 5 (version 4 <= untested, need help here). 
 * PHP - version => 5.3
 
