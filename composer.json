@@ -3,6 +3,15 @@
     "description": "A simple task manager for Laravel 5",
     "type": "library",
     "license": "BSD 3-Clause",
+    "keywords": [
+        "php",
+        "areyi",
+        "laravel",
+        "todo",
+        "task manager",
+        "project manager",
+        "taskmanager"
+    ],
     "authors": [
         {
             "name": "areyi",
@@ -10,5 +19,8 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    }
 }
