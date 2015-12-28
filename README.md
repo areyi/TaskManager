@@ -9,7 +9,7 @@ TaskManager is a Laravel package which allows you to create projects, and create
 ----
 
 ### Version
-0.3.1
+0.3.2
 
 ### Requirements
 
@@ -226,7 +226,7 @@ TaskManager::deleteTask($task_id);
 ```
 
 
-#### 8. Mark a complete a task 
+#### 8. Mark a task as completed
 To mark a task as completed:
 ```php
 TaskManager::completeTask($task_id)
@@ -235,7 +235,29 @@ TaskManager::completeTask($task_id)
 ----
 
 ### Formatting
-Still under development
+This is **still under development**!
+TaskManager is included with a powerful formatter, allowing you to edit or delete projects/tasks and complete a task on the run. The formatter is powered by AJAX. 
+
+#### 1. Get all projects as list
+To list all projects as a list
+```php
+TaskManager::getProjects()->format()->asList();
+```
+
+Result:
+* Web Development Project (by admin) [Delete](#)
+* Test Project (by admin) [Delete](#)
+
+#### 2. Get all tasks as list
+To list all tasks under a project as a list
+```php
+$project_id = 1;
+TaskManager::getProject($project_id)->getTasks()->format()->asList();
+```
+
+Result:
+* Buy a milk [Complete](#) 
+* Buy a book [Complete](#) 
 
 ----
 
