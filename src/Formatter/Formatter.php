@@ -1,7 +1,5 @@
 <?php
 namespace Areyi\TaskManager\Formatter;
-
-
 use Config;
 
 class Formatter
@@ -51,7 +49,7 @@ class Formatter
         }
         $i = str_replace(':name', $data['name'], $format_placeholder);
         $i = str_replace(':username', $data['owner'], $i);
-        $i = str_replace(':done_task_button', $this->config['done_task_button'], $i);
+        $i = str_replace(':complete_button', $this->config['complete_button'], $i);
         $i = str_replace(':view_button', $this->config['view_button'], $i);
         $i = str_replace(':edit_button', $this->config['edit_button'], $i);
         $i = str_replace(':delete_button', $this->config['delete_button'], $i);
@@ -59,12 +57,14 @@ class Formatter
         $i = str_replace(':edit_url', $this->config['edit_url'], $i);
         
         if($type == 'p'){
+            $i = str_replace(':type', 'project', $i);
             $i = str_replace(':delete_url', $this->config['delete_project_url'], $i);
         }else if($type == 't'){
-            $i = str_replace(':delete_url', $this->config['delete_task_button'], $i);
+            $i = str_replace(':type', 'task', $i);
+            $i = str_replace(':delete_url', $this->config['delete_button'], $i);
         }
         
-        $i = str_replace(':done_url', $this->config['done_url'], $i);
+        $i = str_replace(':complete_url', $this->config['complete_url'], $i);
         $i = str_replace(':id', $data['id'], $i);
         return $i;
     }

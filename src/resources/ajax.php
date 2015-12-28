@@ -1,5 +1,5 @@
 <script>
-function changeProject(id, url) {
+function change(type, id, url) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange=function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -8,12 +8,14 @@ function changeProject(id, url) {
   };
   xhttp.open("GET", url + id, true);
   xhttp.send();
-  remove(id);
+  if(type == 'project'){
+    remove(type ,id);
+  }
 }
 
-function remove(id) {
+function remove(type, id) {
     
-    var d = document.getElementById('taskmanager'+id);
+    var d = document.getElementById('taskmanager_'+type+id);
     d.outerHTML = '';
 }
 
