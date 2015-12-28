@@ -135,7 +135,7 @@ class Base
 
         return $this;
     }
-
+    
     /**
      * Get a specific task by task id
      * 
